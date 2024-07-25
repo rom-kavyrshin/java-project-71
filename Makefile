@@ -1,6 +1,6 @@
 build:
 	make -C app build
-run:
-	make -C app run
+run-dist:
+	make -C app run-dist
 checkstyle:
 	make -C app checkstyle

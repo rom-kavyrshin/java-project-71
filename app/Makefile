@@ -1,7 +1,7 @@
 build:
 	./gradlew installDist
-run:
-	./gradlew run
+run-dist:
+	./build/install/app/bin/app
 checkstyle:
 	./gradlew checkstyleMain
 
