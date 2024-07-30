@@ -5,6 +5,7 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.concurrent.Callable;
 
 @Command(
@@ -27,7 +28,17 @@ public class Differ implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
+        if (!filepath1.exists() || !filepath2.exists()) {
+            return 404;
+        }
 
+        String firstContent = Files.readString(filepath1.toPath());
+        String secondContent = Files.readString(filepath2.toPath());
+
+        System.out.println("Begin");
+        System.out.println(firstContent);
+        System.out.println(secondContent);
+        System.out.println("End");
         return 0;
     }
 }
