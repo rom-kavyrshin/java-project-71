@@ -1,44 +1,13 @@
 package hexlet.code;
 
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.util.concurrent.Callable;
 
-@Command(
-        name = "gendiff",
-        mixinStandardHelpOptions = true,
-        version = "gendiff 1.0",
-        description = "Compares two configuration files and shows a difference.",
-        showDefaultValues = true
-)
-public class Differ implements Callable<Integer> {
+public class Differ  {
 
-    @Parameters(index = "0", description = "path to first file")
-    private File filepath1;
+    public static String generate(String firstContent, String secondContent) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
 
-    @Parameters(index = "1", description = "path to second file")
-    private File filepath2;
-
-    @Option(names = {"-f", "--format"}, description = "output format", defaultValue = "stylish")
-    private String format = "stylish";
-
-    @Override
-    public Integer call() throws Exception {
-        if (!filepath1.exists() || !filepath2.exists()) {
-            return 404;
-        }
-
-        String firstContent = Files.readString(filepath1.toPath());
-        String secondContent = Files.readString(filepath2.toPath());
-
-        System.out.println("Begin");
-        System.out.println(firstContent);
-        System.out.println(secondContent);
-        System.out.println("End");
-        return 0;
+        return "";
     }
 }
