@@ -2,7 +2,10 @@ build:
 	./gradlew installDist
 run-dist:
 	./build/install/app/bin/app
-checkstyle:
+checkstyleMain:
 	./gradlew checkstyleMain
+checkstyleTest:
+	./gradlew checkstyleTest
+checkstyle: checkstyleMain checkstyleTest
 
 .PHONY: build
