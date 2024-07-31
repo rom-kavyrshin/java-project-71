@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 
-public class Differ  {
+public class Differ {
 
     public static final String ADDED_SIGN = "+";
     public static final String DELETED_SIGN = "-";
@@ -19,8 +19,8 @@ public class Differ  {
     public static String generate(String firstContent, String secondContent) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        Map<String, Object> firstMap = objectMapper.readValue(firstContent, new TypeReference<>(){});
-        Map<String, Object> secondMap = objectMapper.readValue(secondContent, new TypeReference<>(){});
+        Map<String, Object> firstMap = objectMapper.readValue(firstContent, new TypeReference<>() { });
+        Map<String, Object> secondMap = objectMapper.readValue(secondContent, new TypeReference<>() { });
 
         Set<String> added = new HashSet<>(secondMap.keySet());
         added.removeAll(firstMap.keySet());
@@ -61,8 +61,8 @@ public class Differ  {
         }
 
         for (var key : changed) {
-            var value = PADDING + DELETED_SIGN + " " + key + ": " + firstMap.get(key) + "\n" +
-                    PADDING + ADDED_SIGN + " " + key + ": " + secondMap.get(key) + "\n";
+            var value = PADDING + DELETED_SIGN + " " + key + ": " + firstMap.get(key) + "\n"
+                    + PADDING + ADDED_SIGN + " " + key + ": " + secondMap.get(key) + "\n";
             treeMap.put(key, value);
         }
 
