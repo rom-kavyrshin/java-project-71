@@ -35,9 +35,7 @@ public class App implements Callable<Integer> {
 
         var diff = Differ.generate(firstContent, secondContent);
 
-        System.out.println("Begin");
         System.out.println(diff);
-        System.out.println("End");
         return 0;
     }
 
