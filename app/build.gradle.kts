@@ -2,6 +2,7 @@ plugins {
     id("java")
     application
     checkstyle
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 application {
@@ -13,6 +14,14 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "rom-kavyrshin_java-project-71")
+        property("sonar.organization", "rom-kavyrshin")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 dependencies {
