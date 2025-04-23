@@ -8,4 +8,4 @@ jobs:
       - name: Install dependencies
         run: make
       - name: Build
-      - run: make build
+        run: make build
