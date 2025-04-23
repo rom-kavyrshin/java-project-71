@@ -10,5 +10,7 @@ checkstyle: checkstyleMain checkstyleTest
 
 test:
 	./gradlew cleanTest test
+report:
+	./gradlew jacocoTestReport
 
 .PHONY: build
