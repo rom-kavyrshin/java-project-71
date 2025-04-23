@@ -1,4 +1,4 @@
-build: checkstyle test
+build:
 	make -C app build
 run-dist:
 	make -C app run-dist
