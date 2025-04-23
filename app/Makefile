@@ -8,4 +8,7 @@ checkstyleTest:
 	./gradlew checkstyleTest
 checkstyle: checkstyleMain checkstyleTest
 
+test:
+	./gradlew cleanTest test
+
 .PHONY: build
