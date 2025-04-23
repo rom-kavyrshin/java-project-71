@@ -2,6 +2,7 @@ plugins {
     id("java")
     application
     checkstyle
+    jacoco
     id("org.sonarqube") version "6.0.1.5171"
 }
 
@@ -40,4 +41,10 @@ tasks.compileJava {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }
