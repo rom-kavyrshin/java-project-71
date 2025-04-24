@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,5 +19,10 @@ public class TestUtils {
     public static String readFixture(String... stringPath) throws Exception {
         var path = getFixturePath(stringPath);
         return Files.readString(path).trim();
+    }
+
+    public static File createFixtureFile(String... stringPath) throws Exception {
+        var path = getFixturePath(stringPath);
+        return path.toFile();
     }
 }
