@@ -25,16 +25,19 @@ public class Parser {
         Map<String, Object> result;
 
         try {
-            result = jsonMapper.readValue(content, new TypeReference<>() {});
+            result = jsonMapper.readValue(content, new TypeReference<>() { });
         } catch (JsonProcessingException exception) {
             result = null;
         }
 
         if (result == null) {
             try {
-                result = yamlMapper.readValue(content, new TypeReference<>() {});
+                result = yamlMapper.readValue(content, new TypeReference<>() { });
             } catch (JsonProcessingException exception) {
-                throw new FileExtensionNotSupportedException("Unable to parse file " + file.getAbsolutePath(), exception);
+                throw new FileExtensionNotSupportedException(
+                        "Unable to parse file " + file.getAbsolutePath(),
+                        exception
+                );
             }
         }
 
