@@ -7,10 +7,10 @@ import static hexlet.code.TestUtils.createFixtureFile;
 import static hexlet.code.TestUtils.readFixture;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DifferTest {
+class DifferTest {
 
     @Test
-    public void testDiffer() throws Exception {
+    void testDiffer() throws Exception {
         var firstJson = createFixtureFile("test_json", "test_addition_deletion_change", "first.json");
         var secondJson = createFixtureFile("test_json", "test_addition_deletion_change", "second.json");
         var expectedJson = readFixture("test_json", "test_addition_deletion_change", "expected.txt");

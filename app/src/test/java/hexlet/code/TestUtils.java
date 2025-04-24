@@ -21,7 +21,7 @@ public class TestUtils {
         return Files.readString(path).trim();
     }
 
-    public static File createFixtureFile(String... stringPath) throws Exception {
+    public static File createFixtureFile(String... stringPath) {
         var path = getFixturePath(stringPath);
         return path.toFile();
     }

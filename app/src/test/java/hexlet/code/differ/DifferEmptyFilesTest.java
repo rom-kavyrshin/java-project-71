@@ -10,7 +10,7 @@ import static hexlet.code.TestUtils.createFixtureFile;
 import static hexlet.code.TestUtils.readFixture;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DifferTestEmptyFiles {
+class DifferEmptyFilesTest {
 
     private static File emptyContentJson;
     private static File hasContentJson;
@@ -19,7 +19,7 @@ public class DifferTestEmptyFiles {
     private static File hasContentYaml;
 
     @BeforeAll
-    public static void beforeAll() throws Exception {
+    static void beforeAll() throws Exception {
         emptyContentJson = createFixtureFile("test_json", "test_empty_file", "empty_content.json");
         hasContentJson = createFixtureFile("test_json", "test_empty_file", "has_content.json");
 
@@ -28,7 +28,7 @@ public class DifferTestEmptyFiles {
     }
 
     @Test
-    public void testDifferFirstFileEmpty() throws Exception {
+    void testDifferFirstFileEmpty() throws Exception {
         var expectedJson = readFixture("test_json", "test_empty_file", "first_file_empty_expected.txt");
         var expectedYaml = readFixture("test_yaml", "test_empty_file", "first_file_empty_expected.txt");
 
@@ -40,7 +40,7 @@ public class DifferTestEmptyFiles {
     }
 
     @Test
-    public void testDifferSecondFileEmpty() throws Exception {
+    void testDifferSecondFileEmpty() throws Exception {
         var expectedJson = readFixture("test_json", "test_empty_file", "second_file_empty_expected.txt");
         var expectedYaml = readFixture("test_yaml", "test_empty_file", "second_file_empty_expected.txt");
 
@@ -52,7 +52,7 @@ public class DifferTestEmptyFiles {
     }
 
     @Test
-    public void testDifferBothFileEmpty() throws Exception {
+    void testDifferBothFileEmpty() throws Exception {
         var expectedJson = readFixture("test_json", "test_empty_file", "both_file_empty_expected.txt");
         var expectedYaml = readFixture("test_yaml", "test_empty_file", "both_file_empty_expected.txt");
 

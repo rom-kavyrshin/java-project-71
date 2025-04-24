@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import static hexlet.code.TestUtils.createFixtureFile;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ParserTest {
+class ParserTest {
 
     @Test
-    public void testParserWithUnsupportedFileExtension() throws Exception {
+    void testParserWithUnsupportedFileExtension() {
         assertThrows(
                 FileExtensionNotSupportedException.class,
                 () -> Parser.parse(createFixtureFile("test_parser", "unsupported.extension"))
