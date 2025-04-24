@@ -2,25 +2,29 @@ package hexlet.code.differ;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
 import static hexlet.code.Differ.generate;
+import static hexlet.code.TestUtils.createFixtureFile;
 import static hexlet.code.TestUtils.readFixture;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DifferTestEmptyFiles {
 
-    private static String emptyContentJson;
-    private static String hasContentJson;
+    private static File emptyContentJson;
+    private static File hasContentJson;
 
-    private static String emptyContentYaml;
-    private static String hasContentYaml;
+    private static File emptyContentYaml;
+    private static File hasContentYaml;
 
     @BeforeAll
     public static void beforeAll() throws Exception {
-        emptyContentJson = readFixture("test_json", "test_empty_file", "empty_content.json");
-        hasContentJson = readFixture("test_json", "test_empty_file", "has_content.json");
+        emptyContentJson = createFixtureFile("test_json", "test_empty_file", "empty_content.json");
+        hasContentJson = createFixtureFile("test_json", "test_empty_file", "has_content.json");
 
-        emptyContentYaml = readFixture("test_yaml", "test_empty_file", "empty_content.yaml");
-        hasContentYaml = readFixture("test_yaml", "test_empty_file", "has_content.yaml");
+        emptyContentYaml = createFixtureFile("test_yaml", "test_empty_file", "empty_content.yaml");
+        hasContentYaml = createFixtureFile("test_yaml", "test_empty_file", "has_content.yaml");
     }
 
     @Test

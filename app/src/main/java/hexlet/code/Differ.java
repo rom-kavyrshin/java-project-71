@@ -1,8 +1,6 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import java.io.File;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -16,11 +14,9 @@ public class Differ {
     public static final String UNCHANGED_SIGN = " ";
     public static final String PADDING = "  ";
 
-    public static String generate(String firstContent, String secondContent) throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        Map<String, Object> firstMap = objectMapper.readValue(firstContent, new TypeReference<>() { });
-        Map<String, Object> secondMap = objectMapper.readValue(secondContent, new TypeReference<>() { });
+    public static String generate(File firstFile, File secondFile) throws Exception {
+        Map<String, Object> firstMap = Parser.parse(firstFile);
+        Map<String, Object> secondMap = Parser.parse(secondFile);
 
         Set<String> added = new HashSet<>(secondMap.keySet());
         added.removeAll(firstMap.keySet());
