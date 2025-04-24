@@ -10,12 +10,18 @@ public class DifferTest {
 
     @Test
     public void testDiffer() throws Exception {
-        var first = readFixture("test_json", "test_addition_deletion_change", "first.json");
-        var second = readFixture("test_json", "test_addition_deletion_change", "second.json");
-        var expected = readFixture("test_json", "test_addition_deletion_change", "expected.txt");
+        var firstJson = readFixture("test_json", "test_addition_deletion_change", "first.json");
+        var secondJson = readFixture("test_json", "test_addition_deletion_change", "second.json");
+        var expectedJson = readFixture("test_json", "test_addition_deletion_change", "expected.txt");
 
-        var actual = generate(first, second);
+        var firstYaml = readFixture("test_yaml", "test_addition_deletion_change", "first.yaml");
+        var secondYaml = readFixture("test_yaml", "test_addition_deletion_change", "second.yaml");
+        var expectedYaml = readFixture("test_yaml", "test_addition_deletion_change", "expected.txt");
 
-        assertEquals(expected, actual);
+        var actualJson = generate(firstJson, secondJson);
+        var actualYaml = generate(firstYaml, secondYaml);
+
+        assertEquals(expectedJson, actualJson);
+        assertEquals(expectedYaml, actualYaml);
     }
 }
