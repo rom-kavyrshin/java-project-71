@@ -6,4 +6,6 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6a1a97080b4b673bf204/test_coverage)](https://codeclimate.com/github/rom-kavyrshin/java-project-71/test_coverage)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rom-kavyrshin_java-project-71&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rom-kavyrshin_java-project-71)
 
-[![asciicast](https://asciinema.org/a/akgEgHtfWLdUBEl52QIyXekO3.svg)](https://asciinema.org/a/akgEgHtfWLdUBEl52QIyXekO3)
+[![Step 6](https://asciinema.org/a/akgEgHtfWLdUBEl52QIyXekO3.svg)](https://asciinema.org/a/akgEgHtfWLdUBEl52QIyXekO3)
+
+[![Step 8](https://asciinema.org/a/XcKITlt7vkt7VJQ4FGlixp1oM.svg)](https://asciinema.org/a/XcKITlt7vkt7VJQ4FGlixp1oM)
