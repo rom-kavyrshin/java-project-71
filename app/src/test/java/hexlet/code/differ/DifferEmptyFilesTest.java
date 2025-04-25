@@ -19,7 +19,7 @@ class DifferEmptyFilesTest {
     private static File hasContentYaml;
 
     @BeforeAll
-    static void beforeAll() throws Exception {
+    static void beforeAll() {
         emptyContentJson = createFixtureFile("test_json", "test_empty_file", "empty_content.json");
         hasContentJson = createFixtureFile("test_json", "test_empty_file", "has_content.json");
 

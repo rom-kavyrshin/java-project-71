@@ -11,7 +11,10 @@ import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Parser {
+public final class Parser {
+
+    private Parser() {
+    }
 
     public static Map<String, Object> parse(File file) throws Exception {
         var content = Files.readString(file.toPath());

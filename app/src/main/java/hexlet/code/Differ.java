@@ -7,12 +7,15 @@ import java.util.Set;
 import java.util.TreeMap;
 
 
-public class Differ {
+public final class Differ {
 
     public static final String ADDED_SIGN = "+";
     public static final String DELETED_SIGN = "-";
     public static final String UNCHANGED_SIGN = " ";
     public static final String PADDING = "  ";
+
+    private Differ() {
+    }
 
     public static String generate(File firstFile, File secondFile) throws Exception {
         Map<String, Object> firstMap = Parser.parse(firstFile);
