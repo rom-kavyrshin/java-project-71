@@ -35,7 +35,7 @@ public final class Differ {
         Set<String> changed = new HashSet<>();
 
         for (String key : intersection) {
-            if (Objects.equals(firstMap.get(key), secondMap.get(key))) {
+            if (Objects.deepEquals(firstMap.get(key), secondMap.get(key))) {
                 unchanged.add(key);
             } else {
                 changed.add(key);
