@@ -3,6 +3,7 @@ package hexlet.code;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -34,7 +35,7 @@ public final class Differ {
         Set<String> changed = new HashSet<>();
 
         for (String key : intersection) {
-            if (firstMap.get(key).equals(secondMap.get(key))) {
+            if (Objects.equals(firstMap.get(key), secondMap.get(key))) {
                 unchanged.add(key);
             } else {
                 changed.add(key);
