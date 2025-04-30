@@ -1,5 +1,6 @@
 setting1: Some value
 setting2: 200
+null_key: null
 setting3: true
 key1: value1
 numbers1:
