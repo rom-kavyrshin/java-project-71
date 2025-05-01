@@ -9,3 +9,5 @@
 [![Step 6](https://asciinema.org/a/akgEgHtfWLdUBEl52QIyXekO3.svg)](https://asciinema.org/a/akgEgHtfWLdUBEl52QIyXekO3)
 
 [![Step 8](https://asciinema.org/a/XcKITlt7vkt7VJQ4FGlixp1oM.svg)](https://asciinema.org/a/XcKITlt7vkt7VJQ4FGlixp1oM)
+
+[![Step 9](https://asciinema.org/a/vR35WlxJ0vpBbHLavc1g4lFGp.svg)](https://asciinema.org/a/vR35WlxJ0vpBbHLavc1g4lFGp)
