@@ -1,5 +1,8 @@
 package hexlet.code;
 
+import hexlet.code.formatters.OutputFormatter;
+import hexlet.code.formatters.OutputFormatterFactory;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Map;
@@ -18,7 +21,7 @@ public final class Differ {
     private Differ() {
     }
 
-    public static String generate(File firstFile, File secondFile) throws Exception {
+    public static String generate(File firstFile, File secondFile, OutputFormatter outputFormatter) throws Exception {
         Map<String, Object> firstMap = Parser.parse(firstFile);
         Map<String, Object> secondMap = Parser.parse(secondFile);
 
@@ -66,13 +69,10 @@ public final class Differ {
             treeMap.put(key, value);
         }
 
-        /////////////////////////
+        return outputFormatter.format(treeMap);
+    }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("{\n");
-        treeMap.forEach((x, y) -> stringBuilder.append(y));
-        stringBuilder.append("}");
-
-        return stringBuilder.toString();
+    public static String generate(File firstFile, File secondFile) throws Exception {
+        return generate(firstFile, secondFile, OutputFormatterFactory.getDefault());
     }
 }

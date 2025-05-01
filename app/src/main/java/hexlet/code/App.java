@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formatters.OutputFormatterFactory;
 import picocli.CommandLine;
 
 import java.io.File;
@@ -29,7 +30,8 @@ public class App implements Callable<Integer> {
             return 404;
         }
 
-        var diff = Differ.generate(filepath1, filepath2);
+        var formatter = OutputFormatterFactory.getOutputFormatter(format);
+        var diff = Differ.generate(filepath1, filepath2, formatter);
 
         System.out.println(diff);
         return 0;
