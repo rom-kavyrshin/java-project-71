@@ -11,18 +11,18 @@ class DifferTest {
 
     @Test
     void testDiffer() throws Exception {
-        var firstJson = createFixtureFile("test_json", "test_addition_deletion_change", "first.json");
-        var secondJson = createFixtureFile("test_json", "test_addition_deletion_change", "second.json");
-        var expectedJson = readFixture("test_json", "test_addition_deletion_change", "expected.txt");
+        var expectedStylish = readFixture("test_addition_deletion_change", "expected", "stylish.txt");
 
-        var firstYaml = createFixtureFile("test_yaml", "test_addition_deletion_change", "first.yaml");
-        var secondYaml = createFixtureFile("test_yaml", "test_addition_deletion_change", "second.yaml");
-        var expectedYaml = readFixture("test_yaml", "test_addition_deletion_change", "expected.txt");
+        var firstJson = createFixtureFile("test_addition_deletion_change", "json", "first.json");
+        var secondJson = createFixtureFile("test_addition_deletion_change", "json", "second.json");
+
+        var firstYaml = createFixtureFile("test_addition_deletion_change", "yaml", "first.yaml");
+        var secondYaml = createFixtureFile("test_addition_deletion_change", "yaml", "second.yaml");
 
         var actualJson = generate(firstJson, secondJson);
         var actualYaml = generate(firstYaml, secondYaml);
 
-        assertEquals(expectedJson, actualJson);
-        assertEquals(expectedYaml, actualYaml);
+        assertEquals(expectedStylish, actualJson);
+        assertEquals(expectedStylish, actualYaml);
     }
 }
