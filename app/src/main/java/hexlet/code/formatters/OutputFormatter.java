@@ -1,8 +1,8 @@
 package hexlet.code.formatters;
 
-import java.util.NavigableMap;
+import hexlet.code.DiffData;
 
 public abstract class OutputFormatter {
 
-    public abstract String format(NavigableMap<String, Object> treeMap);
+    public abstract String format(DiffData diffData);
 }

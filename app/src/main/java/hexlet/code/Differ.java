@@ -8,15 +8,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.TreeMap;
-
 
 public final class Differ {
-
-    public static final String ADDED_SIGN = "+";
-    public static final String DELETED_SIGN = "-";
-    public static final String UNCHANGED_SIGN = " ";
-    public static final String PADDING = "  ";
 
     private Differ() {
     }
@@ -44,32 +37,10 @@ public final class Differ {
                 changed.add(key);
             }
         }
-        /////////////////////////
 
-        var treeMap = new TreeMap<String, Object>();
-
-        for (var key : added) {
-            var value = PADDING + ADDED_SIGN + " " + key + ": " + secondMap.get(key) + "\n";
-            treeMap.put(key, value);
-        }
-
-        for (var key : deleted) {
-            var value = PADDING + DELETED_SIGN + " " + key + ": " + firstMap.get(key) + "\n";
-            treeMap.put(key, value);
-        }
-
-        for (var key : unchanged) {
-            var value = PADDING + UNCHANGED_SIGN + " " + key + ": " + firstMap.get(key) + "\n";
-            treeMap.put(key, value);
-        }
-
-        for (var key : changed) {
-            var value = PADDING + DELETED_SIGN + " " + key + ": " + firstMap.get(key) + "\n"
-                    + PADDING + ADDED_SIGN + " " + key + ": " + secondMap.get(key) + "\n";
-            treeMap.put(key, value);
-        }
-
-        return outputFormatter.format(treeMap);
+        return outputFormatter.format(
+                new DiffData(added, deleted, unchanged, changed, firstMap, secondMap)
+        );
     }
 
     public static String generate(File firstFile, File secondFile) throws Exception {
