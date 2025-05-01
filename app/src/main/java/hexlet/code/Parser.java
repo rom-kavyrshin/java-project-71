@@ -7,6 +7,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import hexlet.code.exception.FileExtensionNotSupportedException;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public final class Parser {
     private Parser() {
     }
 
-    public static Map<String, Object> parse(File file) throws Exception {
+    public static Map<String, Object> parse(File file) throws IOException {
         var content = Files.readString(file.toPath());
 
         if (content.isBlank()) {
