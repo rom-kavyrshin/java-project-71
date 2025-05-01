@@ -5,6 +5,9 @@ public class OutputFormatterFactory {
     public static final String STYLISH_OUTPUT_FORMAT_NAME = "stylish";
     public static final String UNSUPPORTED_FORMAT_MESSAGE = "Unsupported output format";
 
+    private OutputFormatterFactory() {
+    }
+
     public static OutputFormatter getOutputFormatter(String outputFormatName) {
         if (outputFormatName.equals(STYLISH_OUTPUT_FORMAT_NAME)) {
             return new StylishFormatter();

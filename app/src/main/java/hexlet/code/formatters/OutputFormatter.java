@@ -1,8 +1,8 @@
 package hexlet.code.formatters;
 
-import java.util.TreeMap;
+import java.util.NavigableMap;
 
 public abstract class OutputFormatter {
 
-    public abstract String format(TreeMap<String, Object> treeMap);
+    public abstract String format(NavigableMap<String, Object> treeMap);
 }
