@@ -1,5 +1,7 @@
 package hexlet.code.formatters;
 
+import hexlet.code.exception.UnsupportedFormatException;
+
 public class OutputFormatterFactory {
 
     public static final String STYLISH_OUTPUT_FORMAT_NAME = "stylish";
@@ -12,7 +14,7 @@ public class OutputFormatterFactory {
         if (outputFormatName.equals(STYLISH_OUTPUT_FORMAT_NAME)) {
             return new StylishFormatter();
         } else {
-            throw new UnsupportedOperationException(UNSUPPORTED_FORMAT_MESSAGE + ": " + outputFormatName);
+            throw new UnsupportedFormatException(UNSUPPORTED_FORMAT_MESSAGE + ": " + outputFormatName);
         }
     }
 
