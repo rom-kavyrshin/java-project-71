@@ -2,7 +2,7 @@ package hexlet.code.formatters;
 
 import hexlet.code.exception.UnsupportedFormatException;
 
-public class OutputFormatterFactory {
+public final class OutputFormatterFactory {
 
     public static final String STYLISH_OUTPUT_FORMAT_NAME = "stylish";
     public static final String UNSUPPORTED_FORMAT_MESSAGE = "Unsupported output format";
