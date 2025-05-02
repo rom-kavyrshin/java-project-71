@@ -26,6 +26,6 @@ class DifferTest {
         assertEquals(expectedStylish, generate(firstYaml, secondYaml, new StylishFormatter()));
 
         assertEquals(expectedPlain, generate(firstJson, secondJson, new PlainFormatter()));
-        assertEquals(expectedPlain, generate(firstJson, secondJson, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(firstYaml, secondYaml, new PlainFormatter()));
     }
 }
