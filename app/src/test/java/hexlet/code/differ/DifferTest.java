@@ -1,5 +1,6 @@
 package hexlet.code.differ;
 
+import hexlet.code.formatters.JsonFormatter;
 import hexlet.code.formatters.PlainFormatter;
 import hexlet.code.formatters.StylishFormatter;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ class DifferTest {
     void testDiffer() throws Exception {
         var expectedStylish = readFixture("test_addition_deletion_change", "expected", "stylish.txt");
         var expectedPlain = readFixture("test_addition_deletion_change", "expected", "plain.txt");
+        var expectedJson = readFixture("test_addition_deletion_change", "expected", "json.txt");
 
         var firstJson = createFixtureFile("test_addition_deletion_change", "json", "first.json");
         var secondJson = createFixtureFile("test_addition_deletion_change", "json", "second.json");
@@ -27,5 +29,8 @@ class DifferTest {
 
         assertEquals(expectedPlain, generate(firstJson, secondJson, new PlainFormatter()));
         assertEquals(expectedPlain, generate(firstYaml, secondYaml, new PlainFormatter()));
+
+        assertEquals(expectedJson, generate(firstJson, secondJson, new JsonFormatter()));
+        assertEquals(expectedJson, generate(firstYaml, secondYaml, new JsonFormatter()));
     }
 }
