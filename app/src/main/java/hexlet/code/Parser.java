@@ -18,7 +18,7 @@ public final class Parser {
     }
 
     public static Map<String, Object> parse(File file) throws IOException {
-        var content = Files.readString(file.toPath());
+        var content = Files.readString(file.toPath()).trim();
 
         if (content.isBlank()) {
             return new HashMap<>();
