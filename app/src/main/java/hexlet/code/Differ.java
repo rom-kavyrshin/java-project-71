@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.formatters.OutputFormatter;
-import hexlet.code.formatters.OutputFormatterFactory;
 
 import java.io.File;
 import java.util.HashSet;
@@ -41,9 +40,5 @@ public final class Differ {
         return outputFormatter.format(
                 new DiffData(added, deleted, unchanged, changed, firstMap, secondMap)
         );
-    }
-
-    public static String generate(File firstFile, File secondFile) throws Exception {
-        return generate(firstFile, secondFile, OutputFormatterFactory.getDefault());
     }
 }

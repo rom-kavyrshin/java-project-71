@@ -1,5 +1,7 @@
 package hexlet.code.differ;
 
+import hexlet.code.formatters.PlainFormatter;
+import hexlet.code.formatters.StylishFormatter;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -30,34 +32,37 @@ class DifferEmptyFilesTest {
     @Test
     void testDifferFirstFileEmpty() throws Exception {
         var expectedStylish = readFixture("test_empty_file", "expected", "stylish", "first_file_empty_expected.txt");
+        var expectedPlain = readFixture("test_empty_file", "expected", "plain", "first_file_empty_expected.txt");
 
-        var actualJson = generate(emptyContentJson, hasContentJson);
-        var actualYaml = generate(emptyContentYaml, hasContentYaml);
+        assertEquals(expectedStylish, generate(emptyContentJson, hasContentJson, new StylishFormatter()));
+        assertEquals(expectedStylish, generate(emptyContentYaml, hasContentYaml, new StylishFormatter()));
 
-        assertEquals(expectedStylish, actualJson);
-        assertEquals(expectedStylish, actualYaml);
+        assertEquals(expectedPlain, generate(emptyContentJson, hasContentJson, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(emptyContentYaml, hasContentYaml, new PlainFormatter()));
     }
 
     @Test
     void testDifferSecondFileEmpty() throws Exception {
         var expectedStylish = readFixture("test_empty_file", "expected", "stylish", "second_file_empty_expected.txt");
+        var expectedPlain = readFixture("test_empty_file", "expected", "plain", "second_file_empty_expected.txt");
 
-        var actualJson = generate(hasContentJson, emptyContentJson);
-        var actualYaml = generate(hasContentYaml, emptyContentYaml);
+        assertEquals(expectedStylish, generate(hasContentJson, emptyContentJson, new StylishFormatter()));
+        assertEquals(expectedStylish, generate(hasContentYaml, emptyContentYaml, new StylishFormatter()));
 
-        assertEquals(expectedStylish, actualJson);
-        assertEquals(expectedStylish, actualYaml);
+        assertEquals(expectedPlain, generate(hasContentJson, emptyContentJson, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(hasContentYaml, emptyContentYaml, new PlainFormatter()));
     }
 
     @Test
     void testDifferBothFileEmpty() throws Exception {
         var expectedStylish = readFixture("test_empty_file", "expected", "stylish", "both_file_empty_expected.txt");
+        var expectedPlain = readFixture("test_empty_file", "expected", "plain", "both_file_empty_expected.txt");
 
-        var actualJson = generate(emptyContentJson, emptyContentJson);
-        var actualYaml = generate(emptyContentYaml, emptyContentYaml);
+        assertEquals(expectedStylish, generate(emptyContentJson, emptyContentJson, new StylishFormatter()));
+        assertEquals(expectedStylish, generate(emptyContentYaml, emptyContentYaml, new StylishFormatter()));
 
-        assertEquals(expectedStylish, actualJson);
-        assertEquals(expectedStylish, actualYaml);
+        assertEquals(expectedPlain, generate(emptyContentJson, emptyContentJson, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(emptyContentYaml, emptyContentYaml, new PlainFormatter()));
     }
 
 }
