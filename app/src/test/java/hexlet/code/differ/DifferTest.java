@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static hexlet.code.Differ.generate;
 import static hexlet.code.TestUtils.createFixtureFile;
+import static hexlet.code.TestUtils.createJsonNode;
 import static hexlet.code.TestUtils.readFixture;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,7 +31,7 @@ class DifferTest {
         assertEquals(expectedPlain, generate(firstJson, secondJson, new PlainFormatter()));
         assertEquals(expectedPlain, generate(firstYaml, secondYaml, new PlainFormatter()));
 
-        assertEquals(expectedJson, generate(firstJson, secondJson, new JsonFormatter()));
-        assertEquals(expectedJson, generate(firstYaml, secondYaml, new JsonFormatter()));
+        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(firstJson, secondJson, new JsonFormatter())));
+        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(firstYaml, secondYaml, new JsonFormatter())));
     }
 }
