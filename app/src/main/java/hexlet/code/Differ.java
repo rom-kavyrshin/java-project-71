@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import static hexlet.code.formatters.OutputFormatterFactory.STYLISH_OUTPUT_FORMAT_NAME;
+
 public final class Differ {
 
     private Differ() {
@@ -43,5 +45,9 @@ public final class Differ {
         return OutputFormatterFactory
                 .getOutputFormatter(outputFormat)
                 .format(new DiffData(added, deleted, unchanged, changed, firstMap, secondMap));
+    }
+
+    public static String generate(String firstFilePath, String secondFilePath) throws Exception {
+        return generate(firstFilePath, secondFilePath, STYLISH_OUTPUT_FORMAT_NAME);
     }
 }
