@@ -13,15 +13,12 @@ public final class OutputFormatterFactory {
     }
 
     public static OutputFormatter getOutputFormatter(String outputFormatName) {
-        if (outputFormatName.equals(STYLISH_OUTPUT_FORMAT_NAME)) {
-            return new StylishFormatter();
-        } else if (outputFormatName.equals(PLAIN_OUTPUT_FORMAT_NAME)) {
-            return new PlainFormatter();
-        } else if (outputFormatName.equals(JSON_OUTPUT_FORMAT_NAME)) {
-            return new JsonFormatter();
-        } else {
-            throw new UnsupportedFormatException(UNSUPPORTED_FORMAT_MESSAGE + ": " + outputFormatName);
-        }
+        return switch (outputFormatName) {
+            case STYLISH_OUTPUT_FORMAT_NAME -> new StylishFormatter();
+            case PLAIN_OUTPUT_FORMAT_NAME -> new PlainFormatter();
+            case JSON_OUTPUT_FORMAT_NAME -> new JsonFormatter();
+            default -> throw new UnsupportedFormatException(UNSUPPORTED_FORMAT_MESSAGE + ": " + outputFormatName);
+        };
     }
 
     public static OutputFormatter getDefault() {
