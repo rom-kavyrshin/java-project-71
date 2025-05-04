@@ -1,8 +1,8 @@
 package hexlet.code;
 
-import hexlet.code.formatters.OutputFormatter;
+import hexlet.code.formatters.OutputFormatterFactory;
 
-import java.io.File;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -13,7 +13,10 @@ public final class Differ {
     private Differ() {
     }
 
-    public static String generate(File firstFile, File secondFile, OutputFormatter outputFormatter) throws Exception {
+    public static String generate(String firstFilePath, String secondFilePath, String outputFormat) throws Exception {
+        var firstFile = Paths.get(firstFilePath).toFile();
+        var secondFile = Paths.get(secondFilePath).toFile();
+
         Map<String, Object> firstMap = Parser.parse(firstFile);
         Map<String, Object> secondMap = Parser.parse(secondFile);
 
@@ -37,8 +40,8 @@ public final class Differ {
             }
         }
 
-        return outputFormatter.format(
-                new DiffData(added, deleted, unchanged, changed, firstMap, secondMap)
-        );
+        return OutputFormatterFactory
+                .getOutputFormatter(outputFormat)
+                .format(new DiffData(added, deleted, unchanged, changed, firstMap, secondMap));
     }
 }

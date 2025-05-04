@@ -1,34 +1,32 @@
 package hexlet.code.differ;
 
-import hexlet.code.formatters.JsonFormatter;
-import hexlet.code.formatters.PlainFormatter;
-import hexlet.code.formatters.StylishFormatter;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static hexlet.code.Differ.generate;
-import static hexlet.code.TestUtils.createFixtureFile;
 import static hexlet.code.TestUtils.createJsonNode;
+import static hexlet.code.TestUtils.getFixturePath;
 import static hexlet.code.TestUtils.readFixture;
+import static hexlet.code.formatters.OutputFormatterFactory.JSON_OUTPUT_FORMAT_NAME;
+import static hexlet.code.formatters.OutputFormatterFactory.PLAIN_OUTPUT_FORMAT_NAME;
+import static hexlet.code.formatters.OutputFormatterFactory.STYLISH_OUTPUT_FORMAT_NAME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferEmptyFilesTest {
 
-    private static File emptyContentJson;
-    private static File hasContentJson;
+    private static String emptyContentJson;
+    private static String hasContentJson;
 
-    private static File emptyContentYaml;
-    private static File hasContentYaml;
+    private static String emptyContentYaml;
+    private static String hasContentYaml;
 
     @BeforeAll
     static void beforeAll() {
-        emptyContentJson = createFixtureFile("test_empty_file", "json", "empty_content.json");
-        hasContentJson = createFixtureFile("test_empty_file", "json", "has_content.json");
+        emptyContentJson = getFixturePath("test_empty_file", "json", "empty_content.json").toString();
+        hasContentJson = getFixturePath("test_empty_file", "json", "has_content.json").toString();
 
-        emptyContentYaml = createFixtureFile("test_empty_file", "yaml", "empty_content.yaml");
-        hasContentYaml = createFixtureFile("test_empty_file", "yaml", "has_content.yaml");
+        emptyContentYaml = getFixturePath("test_empty_file", "yaml", "empty_content.yaml").toString();
+        hasContentYaml = getFixturePath("test_empty_file", "yaml", "has_content.yaml").toString();
     }
 
     @Test
@@ -37,19 +35,19 @@ class DifferEmptyFilesTest {
         var expectedPlain = readFixture("test_empty_file", "expected", "plain", "first_file_empty_expected.txt");
         var expectedJson = readFixture("test_empty_file", "expected", "json", "first_file_empty_expected.txt");
 
-        assertEquals(expectedStylish, generate(emptyContentJson, hasContentJson, new StylishFormatter()));
-        assertEquals(expectedStylish, generate(emptyContentYaml, hasContentYaml, new StylishFormatter()));
+        assertEquals(expectedStylish, generate(emptyContentJson, hasContentJson, STYLISH_OUTPUT_FORMAT_NAME));
+        assertEquals(expectedStylish, generate(emptyContentYaml, hasContentYaml, STYLISH_OUTPUT_FORMAT_NAME));
 
-        assertEquals(expectedPlain, generate(emptyContentJson, hasContentJson, new PlainFormatter()));
-        assertEquals(expectedPlain, generate(emptyContentYaml, hasContentYaml, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(emptyContentJson, hasContentJson, PLAIN_OUTPUT_FORMAT_NAME));
+        assertEquals(expectedPlain, generate(emptyContentYaml, hasContentYaml, PLAIN_OUTPUT_FORMAT_NAME));
 
         assertEquals(
                 createJsonNode(expectedJson),
-                createJsonNode(generate(emptyContentJson, hasContentJson, new JsonFormatter()))
+                createJsonNode(generate(emptyContentJson, hasContentJson, JSON_OUTPUT_FORMAT_NAME))
         );
         assertEquals(
                 createJsonNode(expectedJson),
-                createJsonNode(generate(emptyContentYaml, hasContentYaml, new JsonFormatter()))
+                createJsonNode(generate(emptyContentYaml, hasContentYaml, JSON_OUTPUT_FORMAT_NAME))
         );
     }
 
@@ -59,19 +57,19 @@ class DifferEmptyFilesTest {
         var expectedPlain = readFixture("test_empty_file", "expected", "plain", "second_file_empty_expected.txt");
         var expectedJson = readFixture("test_empty_file", "expected", "json", "second_file_empty_expected.txt");
 
-        assertEquals(expectedStylish, generate(hasContentJson, emptyContentJson, new StylishFormatter()));
-        assertEquals(expectedStylish, generate(hasContentYaml, emptyContentYaml, new StylishFormatter()));
+        assertEquals(expectedStylish, generate(hasContentJson, emptyContentJson, STYLISH_OUTPUT_FORMAT_NAME));
+        assertEquals(expectedStylish, generate(hasContentYaml, emptyContentYaml, STYLISH_OUTPUT_FORMAT_NAME));
 
-        assertEquals(expectedPlain, generate(hasContentJson, emptyContentJson, new PlainFormatter()));
-        assertEquals(expectedPlain, generate(hasContentYaml, emptyContentYaml, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(hasContentJson, emptyContentJson, PLAIN_OUTPUT_FORMAT_NAME));
+        assertEquals(expectedPlain, generate(hasContentYaml, emptyContentYaml, PLAIN_OUTPUT_FORMAT_NAME));
 
         assertEquals(
                 createJsonNode(expectedJson),
-                createJsonNode(generate(hasContentJson, emptyContentJson, new JsonFormatter()))
+                createJsonNode(generate(hasContentJson, emptyContentJson, JSON_OUTPUT_FORMAT_NAME))
         );
         assertEquals(
                 createJsonNode(expectedJson),
-                createJsonNode(generate(hasContentYaml, emptyContentYaml, new JsonFormatter()))
+                createJsonNode(generate(hasContentYaml, emptyContentYaml, JSON_OUTPUT_FORMAT_NAME))
         );
     }
 
@@ -81,19 +79,19 @@ class DifferEmptyFilesTest {
         var expectedPlain = readFixture("test_empty_file", "expected", "plain", "both_file_empty_expected.txt");
         var expectedJson = readFixture("test_empty_file", "expected", "json", "both_file_empty_expected.txt");
 
-        assertEquals(expectedStylish, generate(emptyContentJson, emptyContentJson, new StylishFormatter()));
-        assertEquals(expectedStylish, generate(emptyContentYaml, emptyContentYaml, new StylishFormatter()));
+        assertEquals(expectedStylish, generate(emptyContentJson, emptyContentJson, STYLISH_OUTPUT_FORMAT_NAME));
+        assertEquals(expectedStylish, generate(emptyContentYaml, emptyContentYaml, STYLISH_OUTPUT_FORMAT_NAME));
 
-        assertEquals(expectedPlain, generate(emptyContentJson, emptyContentJson, new PlainFormatter()));
-        assertEquals(expectedPlain, generate(emptyContentYaml, emptyContentYaml, new PlainFormatter()));
+        assertEquals(expectedPlain, generate(emptyContentJson, emptyContentJson, PLAIN_OUTPUT_FORMAT_NAME));
+        assertEquals(expectedPlain, generate(emptyContentYaml, emptyContentYaml, PLAIN_OUTPUT_FORMAT_NAME));
 
         assertEquals(
                 createJsonNode(expectedJson),
-                createJsonNode(generate(emptyContentJson, emptyContentJson, new JsonFormatter()))
+                createJsonNode(generate(emptyContentJson, emptyContentJson, JSON_OUTPUT_FORMAT_NAME))
         );
         assertEquals(
                 createJsonNode(expectedJson),
-                createJsonNode(generate(emptyContentYaml, emptyContentYaml, new JsonFormatter()))
+                createJsonNode(generate(emptyContentYaml, emptyContentYaml, JSON_OUTPUT_FORMAT_NAME))
         );
     }
 
