@@ -43,8 +43,14 @@ class DifferEmptyFilesTest {
         assertEquals(expectedPlain, generate(emptyContentJson, hasContentJson, new PlainFormatter()));
         assertEquals(expectedPlain, generate(emptyContentYaml, hasContentYaml, new PlainFormatter()));
 
-        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(emptyContentJson, hasContentJson, new JsonFormatter())));
-        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(emptyContentYaml, hasContentYaml, new JsonFormatter())));
+        assertEquals(
+                createJsonNode(expectedJson),
+                createJsonNode(generate(emptyContentJson, hasContentJson, new JsonFormatter()))
+        );
+        assertEquals(
+                createJsonNode(expectedJson),
+                createJsonNode(generate(emptyContentYaml, hasContentYaml, new JsonFormatter()))
+        );
     }
 
     @Test
@@ -59,8 +65,14 @@ class DifferEmptyFilesTest {
         assertEquals(expectedPlain, generate(hasContentJson, emptyContentJson, new PlainFormatter()));
         assertEquals(expectedPlain, generate(hasContentYaml, emptyContentYaml, new PlainFormatter()));
 
-        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(hasContentJson, emptyContentJson, new JsonFormatter())));
-        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(hasContentYaml, emptyContentYaml, new JsonFormatter())));
+        assertEquals(
+                createJsonNode(expectedJson),
+                createJsonNode(generate(hasContentJson, emptyContentJson, new JsonFormatter()))
+        );
+        assertEquals(
+                createJsonNode(expectedJson),
+                createJsonNode(generate(hasContentYaml, emptyContentYaml, new JsonFormatter()))
+        );
     }
 
     @Test
@@ -75,8 +87,14 @@ class DifferEmptyFilesTest {
         assertEquals(expectedPlain, generate(emptyContentJson, emptyContentJson, new PlainFormatter()));
         assertEquals(expectedPlain, generate(emptyContentYaml, emptyContentYaml, new PlainFormatter()));
 
-        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(emptyContentJson, emptyContentJson, new JsonFormatter())));
-        assertEquals(createJsonNode(expectedJson), createJsonNode(generate(emptyContentYaml, emptyContentYaml, new JsonFormatter())));
+        assertEquals(
+                createJsonNode(expectedJson),
+                createJsonNode(generate(emptyContentJson, emptyContentJson, new JsonFormatter()))
+        );
+        assertEquals(
+                createJsonNode(expectedJson),
+                createJsonNode(generate(emptyContentYaml, emptyContentYaml, new JsonFormatter()))
+        );
     }
 
 }
