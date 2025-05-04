@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 public class TestUtils {
 
-    public static Path getFixturePath(String[] path) {
+    public static Path getFixturePath(String... path) {
         String[] combined = new String[path.length + 2];
         combined[0] = "test";
         combined[1] = "resources";
