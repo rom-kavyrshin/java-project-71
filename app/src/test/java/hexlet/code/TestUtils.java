@@ -1,5 +1,8 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,5 +27,10 @@ public class TestUtils {
     public static File createFixtureFile(String... stringPath) {
         var path = getFixturePath(stringPath);
         return path.toFile();
+    }
+
+    public static JsonNode createJsonNode(String json) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readTree(json);
     }
 }
