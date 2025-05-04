@@ -6,6 +6,7 @@ public final class OutputFormatterFactory {
 
     public static final String STYLISH_OUTPUT_FORMAT_NAME = "stylish";
     public static final String PLAIN_OUTPUT_FORMAT_NAME = "plain";
+    public static final String JSON_OUTPUT_FORMAT_NAME = "json";
     public static final String UNSUPPORTED_FORMAT_MESSAGE = "Unsupported output format";
 
     private OutputFormatterFactory() {
@@ -16,6 +17,8 @@ public final class OutputFormatterFactory {
             return new StylishFormatter();
         } else if (outputFormatName.equals(PLAIN_OUTPUT_FORMAT_NAME)) {
             return new PlainFormatter();
+        } else if (outputFormatName.equals(JSON_OUTPUT_FORMAT_NAME)) {
+            return new JsonFormatter();
         } else {
             throw new UnsupportedFormatException(UNSUPPORTED_FORMAT_MESSAGE + ": " + outputFormatName);
         }
