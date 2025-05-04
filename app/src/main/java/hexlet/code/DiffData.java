@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Map;
 import java.util.Set;
 
-public class DiffData {
+public final class DiffData {
 
     private final Set<String> added;
     private final Set<String> deleted;

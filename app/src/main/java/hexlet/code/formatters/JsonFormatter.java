@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class JsonFormatter extends OutputFormatter {
+public final class JsonFormatter extends OutputFormatter {
 
     public static final String KEY_DIFF_TYPE = "type";
     public static final String VALUE_STRING = "value";

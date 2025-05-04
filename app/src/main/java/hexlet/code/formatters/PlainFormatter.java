@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class PlainFormatter extends OutputFormatter {
+public final class PlainFormatter extends OutputFormatter {
 
     public static final String ADDED_FORMAT = "Property '%s' was added with value: %s";
     public static final String DELETED_FORMAT = "Property '%s' was removed";

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class StylishFormatter extends OutputFormatter {
+public final class StylishFormatter extends OutputFormatter {
 
     public static final String ADDED_SIGN = "+";
     public static final String DELETED_SIGN = "-";

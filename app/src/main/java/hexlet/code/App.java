@@ -12,7 +12,9 @@ import java.util.concurrent.Callable;
         description = "Compares two configuration files and shows a difference.",
         showDefaultValues = true
 )
-public class App implements Callable<Integer> {
+public final class App implements Callable<Integer> {
+
+    public static final int NOT_FOUND_FILES = 404;
 
     @CommandLine.Parameters(index = "0", description = "path to first file")
     private File filepath1;
@@ -26,7 +28,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         if (!filepath1.exists() || !filepath2.exists()) {
-            return 404;
+            return NOT_FOUND_FILES;
         }
 
         var diff = Differ.generate(filepath1.getPath(), filepath2.getPath(), format);
